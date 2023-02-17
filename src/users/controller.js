@@ -18,9 +18,30 @@ const getUsers = (req, res) => {
         });
 };
 
+const getData = (req, res) => {
+    pool.select('*')
+        .from('alim_data')
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
+const getData2 = (req, res) => {
+    pool.select('*')
+        .from('alim_data2')
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
 module.exports = {
     getUsers,
 };
 
 
- 
