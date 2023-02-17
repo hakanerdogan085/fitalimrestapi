@@ -41,7 +41,7 @@ const getData2 = (req, res) => {
 };
 
 module.exports = {
-    getUsers,
+    getUsers,getData,getData2
 };
 
 
