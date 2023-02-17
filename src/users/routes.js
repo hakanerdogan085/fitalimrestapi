@@ -4,7 +4,7 @@ const controller = require("./controller");
 const router = Router();
 
 router.get("/", controller.getUsers);
-router.get("/", controller.getData);
-router.get("/", controller.getData2);
+router.get("/data", controller.getData);
+router.get("/data2", controller.getData2);
 
 module.exports = router;
