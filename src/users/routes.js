@@ -3,7 +3,7 @@ const controller = require("./controller");
 
 const router = Router();
 
-router.get("/", controller.getUsers);
+router.get("/users", controller.getUsers);
 router.get("/data", controller.getData);
 router.get("/data2", controller.getData2);
 
