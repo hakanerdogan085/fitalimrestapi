@@ -40,8 +40,19 @@ const getData2 = (req, res) => {
         });
 };
 
+const getDataFilter = (req, res) => {
+
+    const sEquipmentcategory = req.params.equipmentcategory;
+    pool.query('select * from alim_data  WHERE equipmentcategory = $1', [id], (error, results) => {
+            res.status(200).json(results);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
 module.exports = {
-    getUsers,getData,getData2
+    getUsers,getData,getData2,getDataFilter
 };
 
 
