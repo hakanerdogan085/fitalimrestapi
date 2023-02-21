@@ -43,12 +43,15 @@ const getData2 = (req, res) => {
 const getDataFilter = (req, res) => {
 
     const sEquipmentcategory = req.params.equipmentcategory;
-    pool.query('select * from alim_data  WHERE equipmentcategory = $1', [id], (error, results) => {
-            res.status(200).json(results);
-        })
-        .catch((err) => {
-            res.status(200).json(err);
-        });
+    pool.select('*')
+    .from('alim_data')
+    .where('equipmentcategory', '=', sEquipmentcategory)
+    .then((data) => {
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        res.status(200).json(err);
+    });
 };
 
 module.exports = {
