@@ -9,7 +9,7 @@ app.use(cors());
 
 const getUsers = (req, res) => {
     pool.select('*')
-        .from('USERLOGIN')
+        .from('userlogin')
         .then((data) => {
             res.status(200).json(data);
         })
@@ -20,18 +20,7 @@ const getUsers = (req, res) => {
 
 const getData = (req, res) => {
     pool.select('*')
-        .from('alim_data')
-        .then((data) => {
-            res.status(200).json(data);
-        })
-        .catch((err) => {
-            res.status(200).json(err);
-        });
-};
-
-const getData2 = (req, res) => {
-    pool.select('*')
-        .from('alim_data2')
+        .from('cequipment')
         .then((data) => {
             res.status(200).json(data);
         })
@@ -44,7 +33,7 @@ const getDataFilter = (req, res) => {
 
     const sEquipmentcategory = req.params.equipmentcategory;
     pool.select('*')
-    .from('alim_data')
+    .from('cequipment')
     .where('equipmentcategory', '=', sEquipmentcategory)
     .then((data) => {
         res.status(200).json(data);
