@@ -44,7 +44,7 @@ const getDataFilter = (req, res) => {
 };
 
 module.exports = {
-    getUsers,getData,getData2,getDataFilter
+    getUsers,getData,getDataFilter
 };
 
 
