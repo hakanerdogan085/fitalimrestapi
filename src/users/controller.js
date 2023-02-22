@@ -33,18 +33,30 @@ const getDataFilter = (req, res) => {
 
     const sEquipmentcategory = req.params.equipmentcategory;
     pool.select('*')
-    .from('cequipment')
-    .where('equipmentcategory', '=', sEquipmentcategory)
-    .then((data) => {
-        res.status(200).json(data);
-    })
-    .catch((err) => {
-        res.status(200).json(err);
-    });
+        .from('cequipment')
+        .where('equipmentcategory', '=', sEquipmentcategory)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
 };
 
+const getDataCoordinates = (req, res) => {
+    pool.select('latitude,longitude')
+        .from('cequipment')
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
+
 module.exports = {
-    getUsers,getData,getDataFilter
+    getUsers, getData, getDataFilter,getDataCoordinates
 };
 
 
