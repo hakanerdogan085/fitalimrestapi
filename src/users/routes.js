@@ -11,4 +11,5 @@ router.get("/fglcmake", controller.getDataMake);
 router.get("/fglcmodel", controller.getDataModel);
 router.get("/fglccategory", controller.getDataCategory);
 router.get("/fglcprodline", controller.getDataProductLine);
+router.get("/fglcCountabcindicator", controller.getDataCountAbcIndicator);
 module.exports = router;

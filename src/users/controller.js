@@ -99,9 +99,22 @@ const getDataModel = (req, res) => {
         });
 };
 
+const getDataCountAbcIndicator = (req, res) => {
+    pool.select('abcindicator').count('*').from('cequipment').where('abcindicator', '!=', '')
+    .groupBy('abcindicator')
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+ 
+
 
 module.exports = {
-    getUsers, getData, getDataFilter,getDataCoordinates,getDataModel,getDataCategory,getDataProductLine,getDataMake
+    getUsers, getData, getDataFilter,getDataCoordinates,getDataModel,getDataCategory,
+    getDataProductLine,getDataMake,getDataCountAbcIndicator
 };
 
 
