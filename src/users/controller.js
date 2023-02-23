@@ -44,7 +44,7 @@ const getDataFilter = (req, res) => {
 };
 
 const getDataCoordinates = (req, res) => {
-    pool.select('longitude')
+    pool.select('latitude longitude')
         .from('cequipment')
         
         .then((data) => {
