@@ -55,9 +55,53 @@ const getDataCoordinates = (req, res) => {
         });
 };
 
+const getDataMake = (req, res) => {
+    pool('cequipment').distinct('fglcmake')
+    .where('fglcmake', '!=', '')
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
+const getDataProductLine = (req, res) => {
+    pool('cequipment').distinct('fglcprodline')
+    .where('fglcprodline', '!=', '')    
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
+const getDataCategory = (req, res) => {
+    pool('cequipment').distinct('fglccategory')
+    .where('fglccategory', '!=', '')   
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
+const getDataModel = (req, res) => {
+    pool('cequipment').distinct('fglcmodel')
+    .where('fglcmodel', '!=', '')   
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(200).json(err);
+        });
+};
+
 
 module.exports = {
-    getUsers, getData, getDataFilter,getDataCoordinates
+    getUsers, getData, getDataFilter,getDataCoordinates,getDataModel,getDataCategory,getDataProductLine,getDataMake
 };
 
 
